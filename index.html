@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Content-Security-Policy"
+      content="
+    default-src 'self' data: blob:;
+    script-src  'self' 'unsafe-inline' 'unsafe-eval';
+    style-src   'self' 'unsafe-inline' data:;
+    img-src     'self' https: data: blob:;
+    connect-src * data: blob:;
+    frame-src   'self' data: blob:;
+  ">
+    <title>Synthetiq Invoice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind compiled by Vite; no CDN -->
+  <script>
+    (function() {
+      const themes = {
+        mint: {
+            '--color-background-main': '#f9fafb', '--color-text-main': '#111827', '--color-text-subtle': '#6b7280', '--color-text-on-primary': '#ffffff', '--color-primary-50': '#f0fdfa', '--color-primary-100': '#ccfbf1', '--color-primary-200': '#99f6e4', '--color-primary-500': '#10b981', '--color-primary-600': '#059669', '--color-primary-700': '#047857', '--color-primary-shadow-rgb': '16, 185, 129', '--color-card-background': '#ffffff', '--color-card-border': '#e5e7eb', '--color-input-background': '#f3f4f6', '--color-input-background-focus': '#ffffff', '--color-input-text': '#111827', '--color-input-placeholder': '#6b7280', '--color-divider': '#e5e7eb', '--color-logo-animation': '#059669'
+        },
+        midnight: {
+            '--color-background-main': '#0f172a', '--color-text-main': '#e2e8f0', '--color-text-subtle': '#94a3b8', '--color-text-on-primary': '#ffffff', '--color-primary-50': '#eef2ff', '--color-primary-100': '#e0e7ff', '--color-primary-200': '#c7d2fe', '--color-primary-500': '#6366f1', '--color-primary-600': '#4f46e5', '--color-primary-700': '#4338ca', '--color-primary-shadow-rgb': '99, 102, 241', '--color-card-background': '#1e293b', '--color-card-border': '#334155', '--color-input-background': '#334155', '--color-input-background-focus': '#1e293b', '--color-input-text': '#f1f5f9', '--color-input-placeholder': '#94a3b8', '--color-divider': '#334155', '--color-logo-animation': '#4f46e5'
+        },
+        sunset: {
+            '--color-background-main': '#fafaf9', '--color-text-main': '#292524', '--color-text-subtle': '#78716c', '--color-text-on-primary': '#ffffff', '--color-primary-50': '#fff7ed', '--color-primary-100': '#ffedd5', '--color-primary-200': '#fed7aa', '--color-primary-500': '#f97316', '--color-primary-600': '#ea580c', '--color-primary-700': '#c2410c', '--color-primary-shadow-rgb': '249, 115, 22', '--color-card-background': '#ffffff', '--color-card-border': '#e7e5e4', '--color-input-background': '#f5f5f4', '--color-input-background-focus': '#ffffff', '--color-input-text': '#292524', '--color-input-placeholder': '#a8a29e', '--color-divider': '#e7e5e4', '--color-logo-animation': '#ea580c'
+        },
+        professional: {
+            '--color-background-main': '#f1f5f9', '--color-text-main': '#1e293b', '--color-text-subtle': '#64748b', '--color-text-on-primary': '#ffffff', '--color-primary-50': '#eff6ff', '--color-primary-100': '#dbeafe', '--color-primary-200': '#bfdbfe', '--color-primary-500': '#3b82f6', '--color-primary-600': '#2563eb', '--color-primary-700': '#1d4ed8', '--color-primary-shadow-rgb': '59, 130, 246', '--color-card-background': '#ffffff', '--color-card-border': '#e2e8f0', '--color-input-background': '#e2e8f0', '--color-input-background-focus': '#ffffff', '--color-input-text': '#1e293b', '--color-input-placeholder': '#94a3b8', '--color-divider': '#e2e8f0', '--color-logo-animation': '#1e293b'
+        }
+      };
+      try {
+        const settings = JSON.parse(localStorage.getItem('appSettings'));
+        const themeName = settings?.theme || 'professional';
+        const theme = themes[themeName];
+        if (theme) {
+          const root = document.documentElement;
+          Object.keys(theme).forEach(key => {
+            root.style.setProperty(key, theme[key]);
+          });
+          root.setAttribute('data-theme', themeName);
+        }
+      } catch (e) {
+        // Fallback to CSS-defined default
+      }
+    })();
+  </script>
+  <style>
+    :root {
+      /* Default Theme: Classic Professional */
+      --color-background-main: #f1f5f9;
+      --color-text-main: #1e293b;
+      --color-text-subtle: #64748b;
+      --color-text-on-primary: #ffffff;
+      --color-primary-50: #eff6ff;
+      --color-primary-100: #dbeafe;
+      --color-primary-200: #bfdbfe;
+      --color-primary-500: #3b82f6;
+      --color-primary-600: #2563eb;
+      --color-primary-700: #1d4ed8;
+      --color-primary-shadow-rgb: 59, 130, 246;
+      --color-card-background: #ffffff;
+      --color-card-border: #e2e8f0;
+      --color-input-background: #e2e8f0;
+      --color-input-background-focus: #ffffff;
+      --color-input-text: #1e293b;
+      --color-input-placeholder: #94a3b8;
+      --color-divider: #e2e8f0;
+      --color-logo-animation: #1e293b;
+    }
+    
+    /* Native App Feel Enhancements */
+    html, body {
+      overscroll-behavior-y: contain; /* Prevent pull-to-refresh "bounce" */
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-background-main);
+      color: var(--color-text-main);
+      
+      /* Disable text selection for a native feel */
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      /* Remove tap highlight color on mobile */
+      -webkit-tap-highlight-color: transparent;
+
+      /* Disable long-press context menu */
+      -webkit-touch-callout: none;
+    }
+    
+    /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+    *::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Hide scrollbar for Firefox and IE */
+    * {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    
+    /* Re-enable text selection for input fields and specific text elements */
+    input, textarea, [contenteditable="true"], .selectable-text {
+      -webkit-user-select: auto;
+      -ms-user-select: auto;
+      user-select: auto;
+    }
+
+    input, textarea, select {
+      transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card {
+        background: var(--color-card-background);
+        border: 1px solid var(--color-card-border);
+        border-radius: 1rem;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+    }
+    .gradient-button {
+        background-image: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+        color: var(--color-text-on-primary);
+        transition: opacity 0.2s ease;
+    }
+    .gradient-button:hover {
+        opacity: 0.9;
+    }
+    
+    /* Improve link contrast in Midnight Blue theme */
+    .about-link {
+      color: var(--color-text-main);
+    }
+    
+    [data-theme="midnight"] .about-link {
+      color: #eef2ff !important;
+    }
+    
+    [data-theme="midnight"] .about-link:hover {
+      color: #ffffff !important;
+      text-decoration: underline;
+    }
+  </style>
+  <script>window.__USE_HASH_ROUTER__ = true;</script>
+  <script type="module" src="/src/index.tsx"></script>
+</head>
+  <body class="antialiased">
+    <div id="root"></div>
+  </body>
+</html>

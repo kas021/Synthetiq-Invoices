@@ -1,0 +1,3 @@
+# Synthetiq Invoice
+
+A mobile-friendly web app from Synthetiq that lets users fill in invoice details and generate a professional PDF. It features auto-incrementing invoice numbers, saved sender details, and optional logo uploads, all with a clean, minimalist design.
