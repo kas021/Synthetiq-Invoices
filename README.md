@@ -153,6 +153,8 @@ You are free to modify or reuse any part of it.
 
 ---
 
+
+<!-- Test sync workflow -->
 ## 💬 Final Note
 
 This was built with the goal of helping people create invoices quickly without needing complicated accounting software.
